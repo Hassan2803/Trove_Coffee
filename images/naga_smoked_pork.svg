@@ -1,0 +1,125 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="500" viewBox="0 0 800 500">
+  <defs>
+    <!-- Dark Rustic Ambient Background -->
+    <radialGradient id="bgGlow" cx="50%" cy="50%" r="70%">
+      <stop offset="0%" stop-color="#2a140e"/>
+      <stop offset="60%" stop-color="#120c16"/>
+      <stop offset="100%" stop-color="#07050a"/>
+    </radialGradient>
+
+    <!-- Gourmet Cast Iron Skillet Gradient -->
+    <linearGradient id="skilletGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#2b2830"/>
+      <stop offset="50%" stop-color="#18161f"/>
+      <stop offset="100%" stop-color="#0d0c12"/>
+    </linearGradient>
+
+    <!-- Rich Smoked Pork Belly Glaze -->
+    <linearGradient id="porkGlaze" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ff6600"/>
+      <stop offset="35%" stop-color="#cc2900"/>
+      <stop offset="75%" stop-color="#801500"/>
+      <stop offset="100%" stop-color="#400b00"/>
+    </linearGradient>
+
+    <!-- Smoked Char Highlight -->
+    <linearGradient id="charGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#ffaa00"/>
+      <stop offset="50%" stop-color="#ff4400"/>
+      <stop offset="100%" stop-color="#260500"/>
+    </linearGradient>
+
+    <!-- Fermented Bamboo Shoot Strips -->
+    <linearGradient id="bambooGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffe699"/>
+      <stop offset="70%" stop-color="#d4a373"/>
+      <stop offset="100%" stop-color="#996633"/>
+    </linearGradient>
+
+    <!-- Glow Effect for Hot Embers -->
+    <filter id="emberGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="10" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <filter id="shadowDepth">
+      <feDropShadow dx="0" dy="15" stdDeviation="15" flood-color="#000000" flood-opacity="0.8"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="100%" height="100%" fill="url(#bgGlow)"/>
+
+  <!-- Subtle Smoke Trails -->
+  <g opacity="0.35" filter="url(#emberGlow)">
+    <path d="M350 200 Q330 140 370 90 T340 20" stroke="#ffaa66" stroke-width="8" fill="none" stroke-linecap="round"/>
+    <path d="M420 210 Q450 150 410 100 T440 30" stroke="#ff7733" stroke-width="6" fill="none" stroke-linecap="round"/>
+    <path d="M480 230 Q460 170 500 120 T470 50" stroke="#ffaa66" stroke-width="5" fill="none" stroke-linecap="round"/>
+  </g>
+
+  <!-- Cast Iron Pan Base -->
+  <g filter="url(#shadowDepth)">
+    <!-- Pan Handle -->
+    <rect x="80" y="215" width="160" height="30" rx="8" fill="url(#skilletGrad)" stroke="#ff5500" stroke-width="1.5" transform="rotate(-12 80 215)"/>
+    <!-- Pan Outer Ring -->
+    <circle cx="430" cy="230" r="175" fill="url(#skilletGrad)" stroke="#3a3545" stroke-width="8"/>
+    <!-- Pan Inner Cooking Surface -->
+    <circle cx="430" cy="230" r="160" fill="#14111a" stroke="#ff5500" stroke-width="2"/>
+    <!-- Inner Grill Lines -->
+    <path d="M290 190 L570 190 M280 230 L580 230 M290 270 L570 270" stroke="#251f30" stroke-width="4"/>
+  </g>
+
+  <!-- Bamboo Shoot Slices (Bed) -->
+  <g>
+    <path d="M330 200 Q380 180 440 210 T510 190" stroke="url(#bambooGrad)" stroke-width="10" fill="none" stroke-linecap="round"/>
+    <path d="M310 240 Q370 220 430 250 T530 220" stroke="url(#bambooGrad)" stroke-width="12" fill="none" stroke-linecap="round"/>
+    <path d="M350 260 Q410 240 470 270 T500 250" stroke="url(#bambooGrad)" stroke-width="9" fill="none" stroke-linecap="round"/>
+  </g>
+
+  <!-- Thick Sliced Naga Smoked Pork Belly Cuts -->
+  <g filter="url(#shadowDepth)">
+    <!-- Slice 1 -->
+    <g transform="rotate(-8 360 190)">
+      <rect x="300" y="160" width="120" height="55" rx="12" fill="url(#porkGlaze)" stroke="#ffaa00" stroke-width="2"/>
+      <rect x="300" y="160" width="120" height="14" rx="6" fill="#ffe6cc" opacity="0.9"/>
+      <path d="M320 160 L340 215 M360 160 L380 215 M400 160 L420 215" stroke="url(#charGrad)" stroke-width="4"/>
+    </g>
+
+    <!-- Slice 2 (Centerpiece Prime Cut) -->
+    <g transform="rotate(5 430 210)">
+      <rect x="370" y="180" width="135" height="60" rx="14" fill="url(#porkGlaze)" stroke="#ffaa00" stroke-width="2.5" filter="url(#emberGlow)"/>
+      <rect x="370" y="180" width="135" height="16" rx="7" fill="#fff0e6" opacity="0.95"/>
+      <rect x="370" y="205" width="135" height="10" fill="#991f00"/>
+      <path d="M390 180 L415 240 M430 180 L455 240 M470 180 L495 240" stroke="url(#charGrad)" stroke-width="5"/>
+    </g>
+
+    <!-- Slice 3 -->
+    <g transform="rotate(-15 480 250)">
+      <rect x="420" y="230" width="115" height="50" rx="10" fill="url(#porkGlaze)" stroke="#ff7733" stroke-width="2"/>
+      <rect x="420" y="230" width="115" height="12" rx="5" fill="#ffe6cc" opacity="0.85"/>
+      <path d="M440 230 L460 280 M480 230 L500 280" stroke="url(#charGrad)" stroke-width="4"/>
+    </g>
+  </g>
+
+  <!-- Fresh Naga Herbs & Bhut Jolokia Red Chilies -->
+  <g>
+    <path d="M300 260 C320 240 360 250 370 290 C350 290 320 280 300 260 Z" fill="#ff1a1a" filter="url(#emberGlow)"/>
+    <path d="M300 260 Q290 255 285 250" stroke="#2ecc71" stroke-width="4" stroke-linecap="round"/>
+    <circle cx="490" cy="180" r="10" fill="#ff1a1a" stroke="#ffffff" stroke-width="2"/>
+    <circle cx="490" cy="180" r="4" fill="#ffc107"/>
+    <circle cx="340" cy="190" r="6" fill="#2ecc71"/>
+    <circle cx="350" cy="182" r="5" fill="#27ae60"/>
+    <circle cx="440" cy="195" r="7" fill="#2ecc71"/>
+    <circle cx="452" cy="188" r="5" fill="#27ae60"/>
+    <circle cx="475" cy="265" r="6" fill="#2ecc71"/>
+  </g>
+
+  <!-- Title Overlay (Resized & Fitted) -->
+  <rect x="0" y="425" width="800" height="75" fill="rgba(10, 9, 14, 0.95)" />
+  <line x1="0" y1="425" x2="800" y2="425" stroke="#ff5500" stroke-width="2"/>
+  <text x="50%" y="452" dominant-baseline="middle" text-anchor="middle" fill="#ffffff" font-family="'Playfair Display', Georgia, serif" font-size="24" font-weight="bold">Naga Smoked Pork</text>
+  <text x="50%" y="478" dominant-baseline="middle" text-anchor="middle" fill="#ffc107" font-family="sans-serif" font-size="11" letter-spacing="1.5">SLOW SMOKED PORK • FERMENTED BAMBOO SHOOT • BHUT JOLOKIA</text>
+</svg>
