@@ -1,95 +1,55 @@
-// Café Porkotinii - Client & Pitch Interactivity Logic (Using Real Local Image Files)
+// Trove Coffee & More - Interactivity Logic
 
 const menuData = [
   {
     id: 1,
-    name: "Naga Smoked Pork with Bamboo Shoot",
-    category: "northeast",
-    price: "₹380",
-    spice: "Spicy",
+    name: "Mix Sauce Pizza",
+    category: "mains",
+    price: "₹395",
+    spice: "Medium",
     badge: "Bestseller",
-    imgSrc: "images/naga_smoked_pork.svg",
-    desc: "Authentic Naga delicacy made with fermented bamboo shoots, spicy chili mash, and slow-smoked tender pork cuts."
+    imgSrc: "images/pizza_artisan.jpg",
+    desc: "Our signature pizza with a perfect blend of tangy tomato and creamy white sauce, fresh mozzarella, and colorful veggies."
   },
   {
     id: 2,
-    name: "Pork Khorika (Assamese Skewers)",
-    category: "northeast",
-    price: "₹340",
-    spice: "Medium",
-    badge: "Signature",
-    imgSrc: "images/pork_khorika.svg",
-    desc: "Traditional Assamese charcoal-grilled pork skewers marinated in mustard oil, garlic, and wild herbs."
+    name: "Kunafa",
+    category: "desserts",
+    price: "₹345",
+    spice: "Sweet",
+    badge: "Must Try",
+    imgSrc: "images/kunafa_dessert.jpg",
+    desc: "Classic Middle Eastern dessert with crispy shredded phyllo dough, gooey cheese center, topped with sugar syrup and pistachios."
   },
   {
     id: 3,
-    name: "Manipuri Pork Thongba",
-    category: "northeast",
-    price: "₹360",
-    spice: "Medium",
-    badge: "Chef's Special",
-    imgSrc: "images/manipuri_thongba.svg",
-    desc: "A rich Manipuri curry slow-cooked with seasonal greens, maroi napaak (chives), and ginger."
+    name: "Brownie Shake",
+    category: "beverages",
+    price: "₹245",
+    spice: "Sweet",
+    badge: "Popular",
+    imgSrc: "images/brownie_shake.jpg",
+    desc: "Rich chocolate milkshake blended with our house-baked fudgy brownie, topped with whipped cream and chocolate drizzle."
   },
   {
     id: 4,
-    name: "Mizo Style Fried Pork",
-    category: "northeast",
-    price: "₹350",
-    spice: "Hot",
-    badge: "Crispy",
-    imgSrc: "images/mizo_pork.svg",
-    desc: "Sliced pork belly pan-fried to crisp perfection with red mustard paste and crushed local peppers."
+    name: "Artisan Latte",
+    category: "beverages",
+    price: "₹185",
+    spice: "Mild",
+    badge: "Classic",
+    imgSrc: "images/coffee_brownie.jpg",
+    desc: "Smooth espresso pulled from premium Arabica beans, poured over steamed milk with beautiful latte art."
   },
   {
     id: 5,
-    name: "Crispy Honey Chili Pork",
-    category: "starters",
-    price: "₹320",
+    name: "Cream of Chicken Soup",
+    category: "mains",
+    price: "₹210",
     spice: "Mild",
-    badge: "Popular",
-    imgSrc: "images/naga_smoked_pork.svg",
-    desc: "Crispy battered pork wok-tossed in dark soy sauce, pure honey, sesame seeds, and spring onion."
-  },
-  {
-    id: 6,
-    name: "Pork Steamed Momos (8 Pcs)",
-    category: "starters",
-    price: "₹220",
-    spice: "Medium",
-    badge: "Crowd Favorite",
-    imgSrc: "images/pork_momos.svg",
-    desc: "Juicy pork dumplings infused with ginger and scallions, served with spicy Naga chili garlic chutney."
-  },
-  {
-    id: 7,
-    name: "Smoked Bacon & Cheese Burger",
-    category: "starters",
-    price: "₹290",
-    spice: "Mild",
-    badge: "Gourmet",
-    imgSrc: "images/pork_khorika.svg",
-    desc: "Handcrafted smoked pork patty topped with melted cheddar, crispy bacon, caramelized onions, and house aioli."
-  },
-  {
-    id: 8,
-    name: "Northeast Raja Mirchi Cooler",
-    category: "drinks",
-    price: "₹180",
-    spice: "Spicy Twist",
-    badge: "Refreshing",
-    imgSrc: "images/raja_mirchi_cooler.svg",
-    desc: "Refreshing lime cooler infused with a sliver of Bhut Jolokia pepper and mint over crushed ice."
-  },
-  {
-    id: 9,
-    name: "Smoked Honey Ginger Ale",
-    category: "drinks",
-    price: "₹160",
-    spice: "Sweet & Spicy",
-    badge: "Signature",
-    imgSrc: "images/raja_mirchi_cooler.svg",
-    desc: "House-crafted ginger reduction blended with wild honey, sparkling soda, and smoked oak aroma."
+    badge: "Comfort",
+    imgSrc: "images/coffee_brownie.jpg", // Reusing image as placeholder
+    desc: "Rich and creamy comforting soup with tender chicken pieces, served with toasted garlic bread."
   }
 ];
 
@@ -104,7 +64,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
-  // Render Menu Items with Local Images
+  // Render Menu Items
   const menuContainer = document.getElementById("menu-grid-container");
   const categoryBtns = document.querySelectorAll(".category-btn");
   const searchInput = document.getElementById("menu-search-input");
@@ -116,7 +76,7 @@ document.addEventListener("DOMContentLoaded", () => {
         <div style="grid-column: 1 / -1; text-align: center; padding: 50px; color: var(--text-muted);">
           <i class="fa-solid fa-utensils" style="font-size: 3.5rem; margin-bottom: 18px; color: var(--primary-color);"></i>
           <h3>No matching dishes found</h3>
-          <p>Try searching for Naga Smoked Pork, Khorika, or Momos</p>
+          <p>Try searching for Pizza, Kunafa, or Shake</p>
         </div>
       `;
       return;
@@ -127,7 +87,6 @@ document.addEventListener("DOMContentLoaded", () => {
         <div class="menu-item-thumb">
           <img src="${item.imgSrc}" alt="${item.name}" style="width: 100%; height: 100%; object-fit: cover;">
           <span class="menu-badge">${item.badge}</span>
-          <span class="spice-tag"><i class="fa-solid fa-pepper-hot"></i> ${item.spice}</span>
         </div>
         <div class="menu-item-body">
           <div class="menu-item-header">
@@ -136,8 +95,8 @@ document.addEventListener("DOMContentLoaded", () => {
           </div>
           <p class="menu-item-desc">${item.desc}</p>
           <div class="menu-item-footer">
-            <span style="font-size: 0.82rem; color: var(--accent-gold);"><i class="fa-solid fa-circle-check"></i> Fresh Daily</span>
-            <button class="order-btn" onclick="openOrderModal('${item.name}', '${item.price}')">Order Now <i class="fa-solid fa-arrow-right"></i></button>
+            <span style="font-size: 0.82rem; color: var(--primary-color); font-weight: 600;"><i class="fa-solid fa-star"></i> Top Rated</span>
+            <button class="order-btn" onclick="openOrderModal('${item.name}', '${item.price}')">Order <i class="fa-solid fa-plus"></i></button>
           </div>
         </div>
       </div>
@@ -174,7 +133,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // Reservation Form Simulation
+  // Reservation Form
   const reservationForm = document.getElementById("table-reservation-form");
   if (reservationForm) {
     reservationForm.addEventListener("submit", (e) => {
@@ -184,7 +143,7 @@ document.addEventListener("DOMContentLoaded", () => {
       const date = document.getElementById("res-date").value;
       const time = document.getElementById("res-time").value;
 
-      showModal("Table Reserved Successfully!", `Thank you ${name}! We have reserved a table for ${guests} guests on ${date} at ${time}. Instant SMS confirmation sent to your phone.`);
+      showModal("Table Reserved Successfully!", `Thank you ${name}! We have reserved a table for ${guests} guests on ${date} at ${time}. We look forward to hosting you at Trove.`);
       reservationForm.reset();
     });
   }
@@ -195,14 +154,12 @@ document.addEventListener("DOMContentLoaded", () => {
   if (mobileToggle) {
     mobileToggle.addEventListener("click", () => {
       const isOpen = navLinks.classList.toggle("mobile-open");
-      // Update the icon
       const icon = mobileToggle.querySelector("i");
       if (icon) {
         icon.className = isOpen ? "fa-solid fa-xmark" : "fa-solid fa-bars";
       }
     });
 
-    // Close mobile menu when a link is clicked
     navLinks.querySelectorAll("a").forEach(link => {
       link.addEventListener("click", () => {
         navLinks.classList.remove("mobile-open");
@@ -232,9 +189,30 @@ function closeModal() {
 }
 
 function openOrderModal(itemName, itemPrice) {
-  showModal(`Direct Order Request: ${itemName}`, `Order request initialized for ${itemName} (${itemPrice}). In production, this directly forwards to WhatsApp or opens Swiggy/Zomato!`);
+  showModal(`Direct Order: ${itemName}`, `Order request initialized for ${itemName} (${itemPrice}). Call us directly or find us on Swiggy to complete your order!`);
 }
 
 function showPitchDetails() {
-  showModal("Website ROI Proposal for Cafe Porkotinii Owner", "This official site boosts Cafe Porkotinii's brand value by: 1) Capturing direct table reservations 24/7, 2) Reducing Swiggy/Zomato commission costs via direct WhatsApp ordering, 3) Placing Cafe Porkotinii #1 on Google search for 'Pork Cafes in Kolkata'. Ready to launch on cafeporkotinii.com!");
+  showModal("Website ROI Proposal for Trove Coffee & More", "This official site boosts brand value by: 1) Enhancing your premium aesthetic online, 2) Driving direct reservations, 3) Placing Trove #1 on Google for Park Street cafes. Ready to launch!");
 }
+
+
+  // Scroll Reveal Animations
+  const revealElements = document.querySelectorAll('.reveal, .reveal-left, .reveal-right');
+  
+  const revealObserver = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('active');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, {
+    root: null,
+    threshold: 0.1,
+    rootMargin: '0px 0px -50px 0px'
+  });
+
+  revealElements.forEach(el => {
+    revealObserver.observe(el);
+  });
